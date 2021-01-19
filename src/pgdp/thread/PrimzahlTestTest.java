@@ -9,6 +9,8 @@ class PrimzahlTestTest {
 	@BeforeEach
 	public void setImplementation() {
 		PrimzahlTest.testFunc = x -> {
+			if (x <= 0)
+				throw new IllegalArgumentException();
 			for (int t = 2; t < t * t && t * t <= x; t++)
 				if (x % t == 0)
 					return false;
